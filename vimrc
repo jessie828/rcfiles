@@ -54,5 +54,3 @@ map <F10> :set expandtab <CR> :retab<CR>
 map <F6> :Tlist
 let Tlist_Sort_Type = "name"
 let Tlist_Show_One_File = 1
-
-"Plugin 'vim-make-syntax'
