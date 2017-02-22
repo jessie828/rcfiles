@@ -4,3 +4,5 @@ c = log -n 15 --decorate --graph --pretty=oneline --abbrev-commit
 ls = ls-files 
 lso = ls-files --others --exclude-standard --directory
 stuk = update-index --refresh
+deepclean = clean -x
+deepcleanforce = clean -fx
