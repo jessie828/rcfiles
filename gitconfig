@@ -1,0 +1,6 @@
+checout = checkout
+progress = log --all origin_tfs/tfs --author=jessie --since=2.weeks  --pretty=format:\"JH: %s\"
+c = log -n 15 --decorate --graph --pretty=oneline --abbrev-commit
+ls = ls-files 
+lso = ls-files --others --exclude-standard --directory
+stuk = update-index --refresh
