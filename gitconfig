@@ -1,5 +1,6 @@
 [alias]
         lg = log --date=short --graph --pretty=format:'%Cred%h%Creset - %Cgreen(%cd):%Creset %C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset'
+        lgshort = log -n5 --date=short --graph --pretty=format:'%Cred%h%Creset - %Cgreen(%cd):%Creset %C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset'
         checout = checkout
         progress = log --all origin_tfs/tfs --author=jessie --since=2.weeks  --pretty=format:\"JH: %s\"
         c = log -n 15 --decorate --graph --pretty=oneline --abbrev-commit
