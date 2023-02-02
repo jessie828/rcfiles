@@ -1,18 +1,46 @@
 [alias]
-        lg = log --date=short --graph --pretty=format:'%Cred%h%Creset - %Cgreen(%cd):%Creset %C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset'
-        lgshort = log -n5 --date=short --graph --pretty=format:'%Cred%h%Creset - %Cgreen(%cd):%Creset %C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset'
-        checout = checkout
-        progress = log --all origin_tfs/tfs --author=jessie --since=2.weeks  --pretty=format:\"JH: %s\"
-        c = log -n 15 --decorate --graph --pretty=oneline --abbrev-commit
-        ls = ls-files 
-        lso = ls-files --others --exclude-standard --directory
-        stuk = update-index --refresh
-        deepclean = clean -x
-        deepcleanforce = clean -fx
-        unadd = reset HEAD
-        find = rev-list --all -- 
-        amend = commit --amend --no-edit
-        alias = config --get-regexp ^alias\\.
+    lg = log --date=short --graph --pretty=format:'%Cred%h%Creset - %Cgreen(%cd):%Creset %C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset'
+    lgshort = log -n5 --date=short --graph --pretty=format:'%Cred%h%Creset - %Cgreen(%cd):%Creset %C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset'
+    checout = checkout
+    progress = log --first-parent --author=nljhfl --author=jessie --since=2.weeks  --pretty=format:\"JH: %s\"
+    #progress = !(curdir=$PWD && cd /home/hernandezjj/projects/classic.seismic/ && for dir in buildscripts/ Good/ jts/ scripts/ slang/ utilities/ wizards/; do cd $dir; git --first-parent --author=nljhfl --author=jessie --since=2.weeks  --pretty=format:\"JH: %s\"; cd ..; done && cd $curdir)
+    c = log -n 15 --decorate --graph --pretty=oneline --abbrev-commit
+    ls = ls-files
+    lso = ls-files --others --exclude-standard --directory
+    stuk = update-index --refresh
+    deepclean = clean -x
+    deepcleanforce = clean -fx
+    unadd = reset HEAD
+    find = rev-list --all --
+    amend = commit --amend --no-edit
+    cleandiff = !git --no-pager diff --no-color
+    delete-remote = push origin --delete
+    alias = config --get-regexp ^alias\\.
+    rebase = rebase --rebase-merges
 
 [help]
     autocorrect = 1
+[core]
+    pager = diff-so-fancy | less --tabs=4 -RFX
+[color]
+    ui = true
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
+[color "diff"]
+    meta = 11
+    frag = magenta bold
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[diff-so-fancy]
+    markEmptyLines = false
+    changeHunkIndicators = true
+    stripLeadingSymbols = false
+    rulerWidth = 47
+    useUnicodeRuler = true
+[pager]
+    diff = diff-so-fancy | less --tabs=4 -RFXS --pattern '^(Date|added|deleted|modified):'
